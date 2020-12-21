@@ -4,6 +4,13 @@ Exploring Message Passing Interface (MPI) usage with (modern) C++.
 
 The [Message Passing Interface (MPI)](https://de.wikipedia.org/wiki/Message_Passing_Interface) provides bindings for the C and Fortran, since the C++ bindings are removed. Threfore programmers are forced to use either the C API or rely on third-party libraries/implementations.
 
+## TODO
+
+* explore implementations
+* explore best practice with C++
+* learn MPI
+* ...
+
 ## Open MPI
 
 * [Open MPI v4 documentation](https://www.open-mpi.org/doc/v4.0/)
