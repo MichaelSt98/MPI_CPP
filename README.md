@@ -11,7 +11,13 @@ using
 ```bash
 mpic++ mpi_file.cpp -o mpi_file
 ```
-for compiling C++ files using MPI.
+for compiling C++ files using MPI and 
+
+```bash
+mpirun -np 2 mpi_runner
+```
+for running the script.
+
 
 Related compilers/scripts:
 
