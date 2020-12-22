@@ -1,7 +1,10 @@
-#include <mpi.h>
-#include <stdio.h>
+//
+// Created by Michael Staneker on 22.12.20.
+//
 
-int main(int argc, char** argv) {
+#include "../include/Simple_C_API.h"
+
+void simple_test_c_mpi() {
     // Initialize the MPI environment
     MPI_Init(NULL, NULL);
 
@@ -24,6 +27,4 @@ int main(int argc, char** argv) {
 
     // Finalize the MPI environment.
     MPI_Finalize();
-
-    return 0;
 }
