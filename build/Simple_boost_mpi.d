@@ -1,9 +1,9 @@
-./build/main.o: src/main.cpp src/../include/Simple_C_API.h \
-  /usr/local/Cellar/open-mpi/4.0.5/include/mpi.h \
-  /usr/local/Cellar/open-mpi/4.0.5/include/mpi_portable_platform.h \
+./build/Simple_boost_mpi.o: src/Simple_boost_mpi.cpp \
   src/../include/Simple_boost_mpi.h /usr/local/include/boost/mpi.hpp \
   /usr/local/include/boost/mpi/allocator.hpp \
   /usr/local/include/boost/mpi/config.hpp \
+  /usr/local/Cellar/open-mpi/4.0.5/include/mpi.h \
+  /usr/local/Cellar/open-mpi/4.0.5/include/mpi_portable_platform.h \
   /usr/local/include/boost/config.hpp \
   /usr/local/include/boost/config/user.hpp \
   /usr/local/include/boost/config/detail/select_compiler_config.hpp \
@@ -637,14 +637,13 @@
   /usr/local/include/boost/mpi/detail/broadcast_sc.hpp \
   /usr/local/include/boost/mpi/detail/communicator_sc.hpp \
   /usr/local/include/boost/mpi/timer.hpp
-src/main.cpp:
-src/../include/Simple_C_API.h:
-/usr/local/Cellar/open-mpi/4.0.5/include/mpi.h:
-/usr/local/Cellar/open-mpi/4.0.5/include/mpi_portable_platform.h:
+src/Simple_boost_mpi.cpp:
 src/../include/Simple_boost_mpi.h:
 /usr/local/include/boost/mpi.hpp:
 /usr/local/include/boost/mpi/allocator.hpp:
 /usr/local/include/boost/mpi/config.hpp:
+/usr/local/Cellar/open-mpi/4.0.5/include/mpi.h:
+/usr/local/Cellar/open-mpi/4.0.5/include/mpi_portable_platform.h:
 /usr/local/include/boost/config.hpp:
 /usr/local/include/boost/config/user.hpp:
 /usr/local/include/boost/config/detail/select_compiler_config.hpp:

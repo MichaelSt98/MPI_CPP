@@ -26,5 +26,5 @@ void simple_test_c_mpi() {
            processor_name, world_rank, world_size);
 
     // Finalize the MPI environment.
-    MPI_Finalize();
+    //MPI_Finalize();
 }

@@ -28,7 +28,7 @@ OBJEXT      := o
 #Flags, Libraries and Includes
 CXXFLAGS    +=  -std=c++17 -Wno-conversion -g3 #-std=c++17 -O3 -Wall -pedantic -Wno-vla-extension -I/usr/local/include/ -I/usr/local/include/eigen3/ -I./include -I./src
 LFLAGS      := -std=c++17 -O3 -Wall -Wno-deprecated -Werror -pedantic -L/usr/local/lib/
-LIB         := -framework OpenGL -framework GLUT
+LIB         := -lboost_mpi -lboost_serialization
 INC         := -I$(INCDIR) -I/usr/local/include -I/usr/include/opengl -I./include -DNDEBUG
 INCDEP      := -I$(INCDIR)
 
