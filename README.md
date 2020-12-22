@@ -4,6 +4,30 @@ Exploring Message Passing Interface (MPI) usage with (modern) C++.
 
 The [Message Passing Interface (MPI)](https://de.wikipedia.org/wiki/Message_Passing_Interface) provides bindings for the C and Fortran, since the C++ bindings are removed. Threfore programmers are forced to use either the C API or rely on third-party libraries/implementations.
 
+## Compiling
+
+using 
+
+```bash
+mpic++ mpi_file.cpp -o mpi_file
+```
+for compiling C++ files using MPI.
+
+Related compilers/scripts:
+
+* ```mpic++```
+* ```mpicc```
+* ```mpichversion```
+* ```mpicxx```
+* ```mpiexec```
+* ```mpiexec.hydra```
+* ```mpif77```
+* ```mpif90```
+* ```mpifort```
+* ```mpioutil```
+* ```mpirun```
+* ```mpivars```
+
 ## TODO
 
 * explore implementations
