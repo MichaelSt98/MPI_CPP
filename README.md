@@ -1,8 +1,42 @@
 # MPI_CPP
 
-Exploring Message Passing Interface (MPI) usage with (modern) C++.
+**Exploring Message Passing Interface (MPI) usage with (modern) C++.**
 
 The [Message Passing Interface (MPI)](https://de.wikipedia.org/wiki/Message_Passing_Interface) provides bindings for the C and Fortran, since the C++ bindings are removed. Threfore programmers are forced to use either the C API or rely on third-party libraries/implementations.
+
+A communicator defines a group of processes that have the ability to communicate with another in dependence of their ranks. Communication is based on sending and receiving operations among processes. If one sender and receiver is involved, this refers to point-to-point communication. If a process need to communicate with everyone else collective communication involves all processes.
+First the MPI header files need to be included ```#include <mpi.h>``` and the MPI environment must be initialized with
+
+```cpp
+MPI_Init(int* argc, char*** argv)
+```
+
+constructing all of MPI’s global and internal variables. After that
+
+```cpp
+MPI_Comm_size(MPI_Comm communicator, int* size)
+```
+
+returns the size of a communicator and
+
+```cpp
+MPI_Comm_rank(MPI_Comm communicator, int* rank)
+```
+
+returns the rank of a process in a communicator. The ranks of the processes are (primarily) used for identification purposes when sending and receiving messages.
+Using
+
+```cpp
+MPI_Get_processor_name(char* name, int* name_length)
+```
+
+gives the actual name of the processor on which the process is executing. The final call is
+
+```cpp
+MPI_Finalize()
+```
+
+used to clean up the MPI environment and no more MPI calls can be done afterwards.
 
 ## Compiling
 
