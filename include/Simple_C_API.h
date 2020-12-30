@@ -2,7 +2,7 @@
 #define MPI_CPP_SIMPLE_C_API_H
 
 #include <mpi.h>
-#include <stdio.h>
+#include <iostream>
 
 void simple_test_c_mpi();
 

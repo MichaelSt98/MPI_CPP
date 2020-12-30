@@ -4,12 +4,6 @@ CXX         := mpic++ #c++
 #Target binary
 TARGET      := runner
 
-# default python version
-PYTHON_BIN     ?= python3
-PYTHON_CONFIG  := $(PYTHON_BIN)-config
-PYTHON_INCLUDE ?= $(shell $(PYTHON_CONFIG) --includes)
-EXTRA_FLAGS    := $(PYTHON_INCLUDE)
-
 #Directories
 SRCDIR      := ./src
 INCDIR      := ./include
@@ -31,13 +25,6 @@ LFLAGS      := -std=c++17 -O3 -Wall -Wno-deprecated -Werror -pedantic -L/usr/loc
 LIB         := -lboost_mpi -lboost_serialization
 INC         := -I$(INCDIR) -I/usr/local/include -I/usr/include/opengl -I./include -DNDEBUG
 INCDEP      := -I$(INCDIR)
-
-PY_LDFLAGS  += $(shell if $(PYTHON_CONFIG) --ldflags --embed >/dev/null 2>&1; \
-						then $(PYTHON_CONFIG) --ldflags --embed; \
-						else $(PYTHON_CONFIG) --ldflags; fi)
-
-EXTRA_FLAGS += $(shell $(PYTHON_BIN) $(CURDIR)/numpy_flags.py)
-WITHOUT_NUMPY := $(findstring $(EXTRA_FLAGS), WITHOUT_NUMPY) 
 
 #Source and Object files
 SOURCES     := $(shell find $(SRCDIR) -type f -name "*.$(SRCEXT)")
@@ -79,14 +66,14 @@ cleaner: clean
 #link
 $(TARGET): $(OBJECTS)
 	@echo "Linking ..."
-	@$(CXX) $(LFLAGS) $(PY_LDFLAGS) $(INC) -o $(TARGETDIR)/$(TARGET) $^ $(LIB)
+	@$(CXX) $(LFLAGS) $(INC) -o $(TARGETDIR)/$(TARGET) $^ $(LIB)
 
 #compile
 $(BUILDDIR)/%.$(OBJEXT): $(SRCDIR)/%.$(SRCEXT)
 	@echo "  compiling: " $(SRCDIR)/$*
 	@mkdir -p $(dir $@)
-	@$(CXX) $(CXXFLAGS) $(EXTRA_FLAGS) $(INC) -c -o $@ $<
-	@$(CXX) $(CXXFLAGS) $(EXTRA_FLAGS) $(INCDEP) -MM $(SRCDIR)/$*.$(SRCEXT) > $(BUILDDIR)/$*.$(DEPEXT)
+	@$(CXX) $(CXXFLAGS) $(INC) -c -o $@ $<
+	@$(CXX) $(CXXFLAGS) $(INCDEP) -MM $(SRCDIR)/$*.$(SRCEXT) > $(BUILDDIR)/$*.$(DEPEXT)
 	@cp -f $(BUILDDIR)/$*.$(DEPEXT) $(BUILDDIR)/$*.$(DEPEXT).tmp
 	@sed -e 's|.*:|$(BUILDDIR)/$*.$(OBJEXT):|' < $(BUILDDIR)/$*.$(DEPEXT).tmp > $(BUILDDIR)/$*.$(DEPEXT)
 	@sed -e 's/.*://' -e 's/\\$$//' < $(BUILDDIR)/$*.$(DEPEXT).tmp | fmt -1 | sed -e 's/^ *//' -e 's/$$/:/' >> $(BUILDDIR)/$*.$(DEPEXT)

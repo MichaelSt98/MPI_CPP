@@ -8,7 +8,12 @@ void simple_boost_mpi(int argc, char** argv) {
 
     boost::mpi::environment env{argc, argv};
     boost::mpi::communicator world;
-    std::cout << world.rank() << ", " << world.size() << '\n';
+
+    // Print off a hello world message
+    std::cout << "Hello world from processor " << env.processor_name();
+    std::cout << ", rank " << world.rank();
+    std::cout << ", out of " << world.size() << " processors" << std::endl;
+
 
     /*
     mpi::environment env(argc, argv);

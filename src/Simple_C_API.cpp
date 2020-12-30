@@ -22,8 +22,9 @@ void simple_test_c_mpi() {
     MPI_Get_processor_name(processor_name, &name_len);
 
     // Print off a hello world message
-    printf("Hello world from processor %s, rank %d out of %d processors\n",
-           processor_name, world_rank, world_size);
+    std::cout << "Hello world from processor " << processor_name;
+    std::cout << ", rank " << world_rank;
+    std::cout << ", out of " << world_size << " processors" << std::endl;
 
     // Finalize the MPI environment.
     //MPI_Finalize();
