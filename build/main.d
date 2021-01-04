@@ -636,7 +636,7 @@
   /usr/local/include/boost/mpi/detail/content_oarchive.hpp \
   /usr/local/include/boost/mpi/detail/broadcast_sc.hpp \
   /usr/local/include/boost/mpi/detail/communicator_sc.hpp \
-  /usr/local/include/boost/mpi/timer.hpp
+  /usr/local/include/boost/mpi/timer.hpp src/../include/ComputePi.h
 src/main.cpp:
 src/../include/Simple_C_API.h:
 /usr/local/Cellar/open-mpi/4.0.5/include/mpi.h:
@@ -1280,3 +1280,4 @@ src/../include/Simple_boost_mpi.h:
 /usr/local/include/boost/mpi/detail/broadcast_sc.hpp:
 /usr/local/include/boost/mpi/detail/communicator_sc.hpp:
 /usr/local/include/boost/mpi/timer.hpp:
+src/../include/ComputePi.h:

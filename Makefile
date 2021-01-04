@@ -99,6 +99,11 @@ else
 	@echo "No $(SRCEXT)-files within $(IDEASDIR)!"
 endif
 
+run:
+	@echo "mpirun -np 2 bin/runner ..."
+	@echo " "
+	@mpirun -np 2 bin/runner
+
 doxyfile.inc: #Makefile
 	@echo INPUT            = README.md . $(SRCDIR)/ $(INCDIR)/ $(DOCUMENTSDIR)/ > $(DOCDIR)/doxyfile.inc
 	@echo FILE_PATTERNS     = "*.md" "*.h" "*.$(SRCEXT)" >> $(DOCDIR)/doxyfile.inc
