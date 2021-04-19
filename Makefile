@@ -45,7 +45,7 @@ remake: cleaner all
 
 #copy Resources from Resources Directory to Target Directory
 resources: directories
-	@cp -r $(RESDIR)/ $(TARGETDIR)/
+	@echo "Making directories..."
 
 #make directories
 directories:

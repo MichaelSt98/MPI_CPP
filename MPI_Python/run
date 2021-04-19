@@ -1,0 +1,5 @@
+mpiexec -n 2 python3.7 main.py
+
+# mpirun works similar to mpiexec but mpiexec should be preferred
+# since the MPI standard describes guidelines how mpiexec work
+#mpirun -n 2 python3 main.py
